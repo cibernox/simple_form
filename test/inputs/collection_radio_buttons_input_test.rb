@@ -76,6 +76,18 @@ class CollectionRadioButtonsInputTest < ActionView::TestCase
     end
   end
 
+  # test 'input should do automatic collection translation and preserve html markup' do
+  #   store_translations(:en, simple_form: { options: { user: {
+  #     gender: { male: '<strong>Male</strong>', female: '<strong>Female</strong>'}
+  #   } } } ) do
+  #     with_input_for @user, :gender, :radio_buttons, collection: [:male, :female]
+  #     assert_select 'input[type=radio][value=male]'
+  #     assert_select 'input[type=radio][value=female]'
+  #     assert_select 'label.collection_radio_buttons strong', 'Male'
+  #     assert_select 'label.collection_radio_buttons strong', 'Female'
+  #   end
+  # end
+
   test 'input should mark the current radio value by default' do
     @user.name = "Carlos"
     with_input_for @user, :name, :radio_buttons, collection: ['Jose', 'Carlos']
